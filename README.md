@@ -86,3 +86,66 @@ Para exluir um disco ou um tráfego de conexão do monitoramento, basta ir para 
 ### Network Monitoring
 **Infrastructure -> Network**
 
+
+## Cloud Automation
+### Cloud Automatino intro
+Essa opção não está disponível no trial.
+Se quisermos acessar a funcionalidade que está no Cloud Automation, precisamos entrar em contato com o time do Dynatrace e pedir pelo chat que é disponiblizado do lado do ícone de perfil.
+Dynatrace pode fornecer uma demo mode para testar essas funcionalidades.
+
+### Releases
+* [Version detection strategies](https://www.dynatrace.com/support/help/platform-modules/cloud-automation/release-monitoring/version-detection-strategies)
+
+Em Cloud Automation nós temos **Release monitoring**.
+Dynatrace oferece uma solução de análise integrada de Release que ajuda você com os seguintes recursos:
+* Quais são os estágios de Release das diferentes versões implantadas?
+* Quais versões são implantadas em seus estágios de implantação e ambientes de produção?
+* Algum bug conhecido e se eles são bloqueadores de lançamento?
+* Algum risco relacionado a versões específicas?
+* Como a nova versão está se comportando em comparação com as versões anteriores.
+
+Em **Release Inventory** exibe todas as releases detectadas. Cada entrada representará um processo agrupado por Release e Build version, stage e product a que pertence.
+* Em **Latest validation** os traffic light ficarão vermelho para failed, amarelo para warning e verde para passed.
+
+Em **Release eventos** serão exibidos todos os eventos que correspondem às releases, por exemplo, reinicio de um processo ou um evento de deployment. 
+
+**Tracked issues** irá exibir todos os problemas com as releases. Ao criar um tracked issue, temos o campo **Issue query** que é a parte mais complicada. Temos que usar placeholders específicos do sistema monitorado. Por exemplo, Jira Cloud precisa ter uma query **issueType = Bug and component in {{PRODUCT}} nad affectedVersion in {{VERSION}}**. O único sistema que não suporta os placeholders é o ServiceNow.
+
+Ao clicar na release abrimos uma página de detalhes.
+
+Nós podemos criar no máximo 20 issue tracking configurations.
+
+### Service-level objectives (SLOs)
+Podemos usar o Dynatrace para estabelecer estabelecer objetivos de nível de serviço. Geralmente, o time de SRE (Site-Reliability Engineering) é responsável por encontrar indicadores de nível de serviço (SLIs - Service-level indicators) para monitorar o quão confiável é o serviço.
+O Dynatrace oferece mais de 2000 diferentes métricas que podem ser dedicadas.
+O SLI é usado para mensurar quão sucedido foi a entrega.
+
+Para fazer isso basta ir em **Cloud Automation -> Service-leval objectives**.
+
+**Um exemplo, Cart loading time should be less than 100 miliiseconds.**
+Com esse exemplo, podemos ver o:
+* Status em porcentagem
+* Error budget: é a diferença até o target definido seja considerado falha. Por exemplo, no vídeo o Target é de 96,5% e o Status é de 96%, sendo assim, o Error budget é de -0,5%
+
+**Cart loading time should be less than 250 miliiseconds.**
+* Status: 98%
+* Error budget: 0,5%
+* Target: 97,5%
+* Warning: 98%
+
+### Creating a new SLO
+Cloud Automation -> Service-level objectives -> Add new SLO
+**Monitor a service-side objective:**
+  * **Service-level availability:** mensura a taxa de sucessos de serviço
+  * **Service-method availability:** número de solicitações de chaves bem sucedidas pelo total de serviços
+  * **Service performance:** a razão entre minutos pelo total de minutos.
+
+**Monitor a client-side objective:**  
+  * User experience
+  * Mobile crash-free users
+  * Synthetic availability: porcentagem de sucesso sintético das execuções monitoradas.
+
+
+
+
+
