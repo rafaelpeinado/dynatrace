@@ -134,7 +134,7 @@ Com esse exemplo, podemos ver o:
 * Warning: 98%
 
 ### Creating a new SLO
-Cloud Automation -> Service-level objectives -> Add new SLO
+**Cloud Automation -> Service-level objectives -> Add new SLO**
 **Monitor a service-side objective:**
   * **Service-level availability:** mensura a taxa de sucessos de serviço
   * **Service-method availability:** número de solicitações de chaves bem sucedidas pelo total de serviços
@@ -146,6 +146,226 @@ Cloud Automation -> Service-level objectives -> Add new SLO
   * Synthetic availability: porcentagem de sucesso sintético das execuções monitoradas.
 
 
+## Applications & Microservices
+### Web applications - Performance Analysis
+* [Apdex ratings](https://www.dynatrace.com/support/help/platform-modules/digital-experience/rum-concepts/scores-and-ratings/apdex-ratings)
 
+Ao clicar em uma aplicação, abriremos uma página de visão serviço da aplicação: 
+* temos o nome da aplicação
+* Tags and Detection rules
+* Framework detectada nas últimas 12 horas (por exemplo, Angular)
+* Performance analysis (onde estão os número da métrica da performance da aplicação): 
+  * Top browser
+    * **Analyze performance**: permite analisar performance multi-dimensional
+      * Podemos analisar as aplicações no browser e as ações do usuário em diversos casos.
+  * **Top users type** 
+  * **View Geolocation breakdown**
+  * **Load actions:** é definida como um carregamento de página real no navegador. Quanto tempo para a página carregar completamente, por exemplo, imagens, HTML e etc.
+  * **XHR (XMLHttpRequest) actions:** começa com o usuário clicando em um controle na página da web. Pode ser um click, double click, mouse up, kill key down.
+  * **Custom actions:** por exemplo, podemos mensurar quanto tempo leva para abrir um dropdown do menu em JavaScript.
+  * **Apdex rating:** O Dynatrace calculará a classificação para fornecer uma única métrica que dirá sobre o desempenho do aplicativo e os erros e impactos para os usuários.
+  * **Errors:** número de erros por minuto.
+    * Errors by type
+  * **Resources:** exibe quais recursos essa aplicação depende
+  * **Services:** lista de serviços que dão suporte a aplicação
+    * **View service flow:** podemos ver a sequência de serviços que são chamados por cada serviço.
+* **Availability**
+* **Composite metrics across response times:** essa é uma seção que vai ajudar a descobrir de uma perspectiva de alto nível onde deveria ser o foco de performance.
+  * User action duration
+  * Visually complete
+  * Speed index
+  * DOM Interactive
+  * Se clicarmos em **Show all metrics** poderemos ver:
+    * Load event end
+    * Load event start
+    * HTML downloaded
+    * Time to first byte
+    * First input delay
+    * Largest contentful paint
+    * Cumulative layout shift
+    * Server contribution
+    * Network contribution
+  * Compare to previous time frame: podemos, por exemplo, comparar as duas últimas horas, com as duas horas anteriores. Pode ser uma semana, entre outros.
+* **Top 3 included domains**
+* **Top errors**
+* **Top 3 user actions**
+* **Problems**
+
+**Applications & Microservices -> Frontend**
+
+
+### Web applications - User Behaviour Analysis
+* [Define conversion goals](https://www.dynatrace.com/support/help/platform-modules/digital-experience/web-applications/analyze-and-use/define-conversion-goals)
+Na parte de overview do menu de aplicação, temos a seção **User behavior** que permite analisar o comportamento dos usuários como sair da página, conversões, bouncers e muito mais.
+Ao clicar ficará disponível:
+* **Returning visitors:** será determinado por um cookie no browser do usuário final. Um ponto importante é que o cookie é válido por dois anos, se o usuário não apagar as informações de cookie. Isto é, se o usuário voltar na aplicação web depois de dois anos, ele será considerado um novo usuário. Caso contrário, ele se mantem como o mesmo usuário. O número apresentado pode ser um pouco maior do que ele realmente é.
+* **Top users types:** podemos verificar os usuários verdadeiros, sintéticos ou robos.
+  * usuários sintéticos faz parte do monitoramento sintético.
+* **Geolocation breakdown:** mostra de onde os usuários acessam a aplicação
+  * Taxa de rejeição (bounce rate)
+  * Opção de usar Expand large view para mais detalhes
+    * é possível ver os países que mais acessam a aplicação
+* **Sessions:** podemos ver:
+  * Active sessions
+  * User engagement
+  * Peak activity intervals
+* **Entry actions:** podemos ver qual é a tendência de carregamento da primeira página durante o dia ou de ações ao longo das sessões
+  * Apdex rating for entry actions
+* **Other actions:** são actions que não são nem a primeira e nem a última ação do usuário durante a sessão.
+* **Exit actions:** a última ação do usuário da sessão
+* **Bounce rate**
+  * Bounce rate analysis
+  * Impact of JavaScript errors on bounce rate
+* **Overall conversion:** overall conversion versus conversions goals
+* **Top 5 conversion goals**
+* **Top 3 bounces**
+* **Top entry and exit actions**
+* **Events:** erros, novas versões, deploy da aplicação, mudanças de configuração
+
+### Web applications - Waterfall Analysis tool
+Esse recurso permite que possamos analisar as ações com bastante detalhes.
+Na página de visão geral da aplicação, basta procurar a seção **Top 3 user actions -> See full details -> Clica em uma action** e teremos acesso a tela com informações detalhadas sobre essa action.
+
+* Quantos segundos até essa action estar completamente carregada
+* Errors
+* Apdex rating
+
+Para usar waterfall analysis basta ir até a seção **Contributors breakdown -> Perform waterfall analysis**
+O waterfall analysis é dividido em três seções:
+* **Document requests:** mostra todos os conteúdos que são identificados quando a página é carregada pela ação do usuário - isso está incluso HTML e outros conteúdos que são exibidos.
+* **Resources:** exibirá detalhes de tempo para todos os recursos e algumas ações de usuários - aqui podemos ver XHR requests ou fetch
+Nos detalhes podemos ver o waterfall e como a ação do usuário performou em uma sequência waterfall.
+
+### Mobile applications - User Experience metrics
+**Applications & Microservices -> Frontend**
+Temos seções de:
+* Problems
+* Top 3 actions
+* AVailability
+* Geographic regions
+* Events
+
+* **User Experience:** 
+  * Users
+  * Apdex rating
+  * User actions per minute
+  * Apdex ratings: terá grafícos que mostrará a média da tendência de apdex rating
+  * User actions and Users
+  * New users: isso contará apenas as primeiras sessões após o lançamento do aplicativo. Porém, se o mesmo usuário acessar a aplicação por outros dispositivos, será contado como novo usuário cada dispositivo.
+  * App version distribution
+
+### Mobile applications - Web Requests metrics
+**Applications & Microservices -> Frontend -> Web requests**
+* Web requests
+* Error rate
+* Top providers
+
+### Mobile applications - Crashes and errors
+**Applications & Microservices -> Frontend -> Crashes & Errors**
+* Crash count
+* Crash-free users
+* Crash rate
+* Crashes by version
+* Reported errors by version
+
+### Mobile applications - Data Privacy
+**Applications & Microservices -> Frontend -> Data privacy**
+Dynatrace fornece várias melhorias de privacidade que podem ser configurados em data privacy e ficar de acordo com o LGPD ou GDPR, protegendo os dados pessoais do cliente.
+Se o Data privacy estiver Active, significa que o usuário por meio do opt in escolheu se vai compartilhar os dados pessoais ou não. 
+Há vários níveis de privacidade de dados:
+* Data collection level: mostra usuários que desligaram, estão anônimos ou permitiu pegar o comportamento do usuário
+* Crash reporting
+* Session replay
+
+Para iniciar o monitoramento de um Mobile app basta:
+**Applications & Microservices -> Frontend -> Mobiile apps -> Set up mobile monitoring**
+Dê um nome e clique em create mobile app
+Na tela de overview do app, basta ir em edit para abrir a tela de configurações:
+* Data privacy -> Privacy settings -> Enable user opt-in mode
+* [Configure data privacy settings for web applications](https://www.dynatrace.com/support/help/platform-modules/digital-experience/web-applications/additional-configuration/configure-real-user-monitoring-according-to-gdpr)
+
+### Web App Settings - General settings
+* [Define user action and user session properties for web applications](https://www.dynatrace.com/support/help/platform-modules/digital-experience/web-applications/additional-configuration/define-user-action-and-session-properties)
+* [Dynatrace ActiveGate](https://www.dynatrace.com/support/help/setup-and-configuration/dynatrace-activegate)
+
+* **General:**
+  * Enablement and cost control
+    * Pode ativar ou desativar o Real User Monitoring
+    * Mudar a porcentagem da quantidade de dados trafegados (Cost and traffic control)
+    * Ativar ou desativar Session Replay on crashes
+  * Application name
+  * Key performance metrics
+  * Data privacy
+  * Beacon Endpoint
+    * Podemos definir onde o dado será enviado, se queremos que seja enviado para Cluster ActiveGate, Environment ActiveGate ou Instrumented web server.
+* **Instrumentation wizard**
+  * Podemos escolher a plataforma de monitoramento: Android, iOS, tvOS, Cordova, React Native, Flutter, Xamarin.
+* **Naming rules**
+  * URL cleanup rules
+  * Action naming rule
+  * Extraction rules
+* **Request errors:** adicionar regras para excluir alguns HTTP responses que não deverão ser tratados como erros.
+* **Anomaly detection**
+  * **Detect unexpected low load:** compara com a semana anterior e caso esteja muito diferente, ele emite um alerta
+* **Crash rate increase**
+* **Symbol files:** pode fazer upload de symbol files como Android, iOS, tvOS
+  * Symbol files hold a variety of data which are not actually needed when running the binaries, but which could be very useful in the debugging process. Typically, symbol files might contain: Global variables. Local variables. 
+  * [Symbols and Symbol Files](https://learn.microsoft.com/en-us/windows-hardware/drivers/debugger/symbols-and-symbol-files)
+  * [Upload and manage symbol files for mobile applications](https://www.dynatrace.com/support/help/platform-modules/digital-experience/mobile-applications/analyze-and-use/upload-and-manage-symbol-files)
+* **Session and user action properties:** Dynatrace captura várias informações sobre a performance da aplicação web e mobile, mas também é possível enriquecer as informações com metadata e transformando esse metadata para user action e user session properties.
+  * É permitido criar 20 propriedadaes por aplicação.
+* **Metrics:** é possível observar todas as métricas que foram criadas para o app.
+
+
+### Service monitoring
+Dynatrace é capaz de identificar exatamente como cada serviço contribui para a performance da aplicação. 
+**Applications & Microservices -> Services**
+E ao clicar em um serviço, abrirá uma página de overview.
+No infográfico exibe as aplicações e se serviços que utilizam esse serviço e se o serviço chama algum outro serviço ou banco de dados.
+
+* Application: dará detalhes sobre quais aplicações usam esse serviço
+* Service: dará detalhes de quais serviços utilizam esse serviço
+* Technology: informações sobre a tecnologia utilizada
+* Called services: serviços que o serviço chama 
+* Used database: bancos de dados que o serviço chama
+
+* Requests: informações sobre o tempo de resposta do serviço, a porcentagem de erro e a taxa de transferência (throughput). 
+  * View request
+  * Ao cliclar em Analyze Backtrace, poderemos entener qual user action e outros serviços dependem desse serviço.
+* Problems
+* Recent hotpots detected
+* Undertand dependencies
+* Events
+
+### Database monitoring
+**Applications & Microservices -> Database**
+* Quais statements do banco de dados foram executados com mais frequência e quais statements levou mais tempo
+* Quais serviços executam esse banco de dados quando foi relatado um problema
+* Dynatrace mostra se existe uma correlação entre o problema e o aumento de carga no serviço relacionado
+  
+No overview do database nós temos:
+* Performance
+* SQL Queries
+  * View database statements:
+    * Response time
+    * Failure rate
+    * Throughput
+    * Database statements
+    * Analyze outliers
+  * Errors
+* Tarefas de modificações e tarefas de transações
+* Problems
+* Response time failure rate
+* Throughput
+* Database availability
+* Requests
+  * Response time
+  * Failure rate
+
+### Dynatrace Resources for Queues, Distributed traces, Profiling and optimization
+* [Queue concepts](https://www.dynatrace.com/support/help/platform-modules/applications-and-microservices/queues/queue-concepts)
+* [Distributed traces overview](https://www.dynatrace.com/support/help/observe-and-explore/purepath-distributed-traces/distributed-traces-overview)
+* [CPU profiling](https://www.dynatrace.com/support/help/platform-modules/applications-and-microservices/profiling-and-optimization/cpu-profiling)
+* [Memory dump analysis](https://www.dynatrace.com/support/help/platform-modules/applications-and-microservices/profiling-and-optimization/memory-dump-analysis)
 
 
