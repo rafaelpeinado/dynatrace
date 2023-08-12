@@ -369,3 +369,55 @@ No overview do database nós temos:
 * [Memory dump analysis](https://www.dynatrace.com/support/help/platform-modules/applications-and-microservices/profiling-and-optimization/memory-dump-analysis)
 
 
+## Other useful features
+### Application Security by Dynatrace
+* [Application Security](https://www.dynatrace.com/support/help/platform-modules/application-security)
+
+**Applications Security -> Third party vulnerabilities**
+Isso é o add-on
+
+### Dynatrace Hub
+**Manage -> Dynatrace Hub**
+Ferramente para integrar alguma tecnologia específica com o Dynatrace ou se for necessário analisar melhor os recursos dso Dynatrace.
+
+### Explore the Manage Menu options - Status, Notification, Access Tokens and more
+**Manage -> Deploy Dynatrace**
+Para instalar e implantar o Dynatrace no nosso ambiente
+
+**Manage -> Deployment Status**
+* [Network zones](https://www.dynatrace.com/support/help/manage/network-zones)
+
+**Manage -> System notifications**
+* Precisar ter acesso de Administrador para ver essa aba
+
+**Manage -> Access tokens**
+Pode ser usado para gerenciar access tokens de APIs
+
+**Manage -> Credential vault**
+Pode gerenciar credenciais que são usadas para os monitoramentos sintéticos
+
+**Manage -> Consumption**
+Total DDU (Davis Data Units) consumed
+* [Extending Dynatrace (Davis data units)](https://www.dynatrace.com/support/help/manage/subscriptions-and-licensing/monitoring-consumption-classic/davis-data-units)
+
+###  Metrics overview
+**Observe and explore -> Metrics**
+Aqui fica disponível todas as métricas disponíveis no Dynatrace.
+Dynatrace tem 5 tipos diferentes de métricas:
+* **Built-in metrics (builtin:):** estão incluídas no produto pronto para uso e começa a usá-las imediatamente.
+* **Extension metrics (ext:):** é oferecido por extensões de OneAgent ou ActiveGate
+* Calculated metrics (calc:)
+* Custom metrics (no prefix)
+* Self-monitoring metrics (dsfm:)
+
+### Reports
+**Observe and explore -> Reports**
+* Service quality: é gerado toda semana às segunda-feiras, e cada service quality report irá resumir o monitoring insights que o Dynatrace compilou da última semana. 
+  * Informações como:
+    * User actions monitored
+    * Service calls monitored
+    * Host hours monitored
+    * Dynatrace score: é a media dos serviços e da infraestrutura da aplicação
+      * Servce score: a porcentagem dos serviços que atingiram o objetivo de sucesso e não foi afetado por problemas.
+* Availability: irá providenciar uma visão geral da disponibildiade baseado em synthetic monitoring.
+
